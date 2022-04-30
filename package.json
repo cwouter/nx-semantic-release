@@ -1,6 +1,10 @@
 {
   "name": "nx-semantic-release",
   "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cwouter/nx-semantic-release.git"
+  },
   "license": "MIT",
   "scripts": {},
   "private": true,
