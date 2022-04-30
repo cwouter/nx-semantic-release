@@ -12,6 +12,21 @@
         "tsConfig": "packages/core/tsconfig.lib.json",
         "assets": ["packages/core/*.md"]
       }
+    },
+    "release": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "cd packages/cli && npm version {args.version}",
+          "cd dist/packages/cli && npm version {args.version}",
+          {
+            "command": "cd dist/packages/cli && npm publish --access public --dry-run",
+            "forwardAllArgs": false
+          }
+        ],
+        "cwd": "./",
+        "parallel": false
+      }
     }
   },
   "tags": []

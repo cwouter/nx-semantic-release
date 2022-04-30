@@ -30,5 +30,4 @@ jobs:
                 run: npx nx run-many --target=build --all
 
             -   name: Publish all packages
-                if: ${{ github.ref_name == 'main' && steps.affected.outputs.affected != '' }}
                 run: npx semantic-release
