@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "cli": "packages/cli",
+    "core": "packages/core"
+  }
+}
