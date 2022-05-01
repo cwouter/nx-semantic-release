@@ -17,10 +17,16 @@
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "commands": [
-          "cd packages/core && cat package.json",
+          {
+            "command": "cd packages/core && cat package.json",
+            "forwardAllArgs": false
+          },
           "cd packages/core && npm version {args.version} --allow-same-version",
           "cd dist/packages/core && npm version {args.version} --allow-same-version",
-          "cd packages/core && cat package.json",
+          {
+            "command": "cd packages/core && cat package.json",
+            "forwardAllArgs": false
+          },
           {
             "command": "cd dist/packages/core && npm publish --access public --dry-run",
             "forwardAllArgs": false
