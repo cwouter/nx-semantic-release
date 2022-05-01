@@ -1,0 +1,17 @@
+{
+  "name": "@nx-semantic-release/cli",
+  "version": "0.0.1",
+  "bin": "./src/index.js",
+  "license": "GPL-3.0",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./src/index.js",
+  "typings": "./src/index.d.ts",
+  "dependencies": {},
+  "peerDependencies": {
+    "@nx-semantic-release/core": "0.0.1",
+    "tslib": "^2.3.0"
+  }
+}
