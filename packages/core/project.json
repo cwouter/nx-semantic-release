@@ -20,7 +20,7 @@
           "cd packages/core && cat package.json",
           "cd packages/core && npm version {args.version} --allow-same-version",
           "cd dist/packages/core && npm version {args.version} --allow-same-version",
-          "cd packages/core cat package.json",
+          "cd packages/core && cat package.json",
           {
             "command": "cd dist/packages/core && npm publish --access public --dry-run",
             "forwardAllArgs": false
