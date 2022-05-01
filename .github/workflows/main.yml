@@ -21,11 +21,6 @@ jobs:
                 with:
                     fetch-depth: 0
 
-            -   name: Config
-                run: |
-                  git config --global user.name 'cwouter'
-                  git config --global user.email '1439383+cwouter@users.noreply.github.com'
-
             -   name: Setup Node LTS
                 uses: actions/setup-node@v3
                 with:
