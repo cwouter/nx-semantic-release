@@ -1,36 +1,39 @@
 name: Build
 
 on:
-    push:
-        branches:
-            - main
+  push:
+    branches:
+      - main
 
 env:
-    TZ: UTC
-    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  TZ: UTC
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
 permissions: write-all
 
 jobs:
-    build:
-        if: "!contains(github.event.head_commit.message, 'skip ci')"
-        runs-on: ubuntu-latest
-        steps:
-            -   uses: actions/checkout@v3
-                with:
-                    fetch-depth: 0
+  build:
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
-            -   name: Setup Node LTS
-                uses: actions/setup-node@v3
-                with:
-                    node-version: 'lts/*'
+      - name: Setup Node LTS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/*'
 
-            -   name: Install dependencies
-                run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-            -   name: Build all packages
-                run: npx nx run-many --target=build --all
+      - name: Build all packages
+        run: npx nx run-many --target=build --all
 
-            -   name: Publish all packages
-                run: npx semantic-release
+      - name: Prepare publish
+        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+
+      - name: Publish all packages
+        run: npx semantic-release
