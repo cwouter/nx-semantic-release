@@ -9,6 +9,7 @@
   "scripts": {},
   "private": true,
   "dependencies": {
+    "conventional-changelog-eslint": "^3.0.9",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
