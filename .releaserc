@@ -49,13 +49,13 @@
         "preset": "ESLint"
       }
     ],
+    "@semantic-release/github",
     [
       "@semantic-release/exec",
       {
         "publishCmd": "nx run-many --target=release --all --args=\"--version=${nextRelease.version}\""
       }
     ],
-    "@semantic-release/github",
     [
       "@semantic-release/git",
       {
