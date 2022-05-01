@@ -21,20 +21,16 @@
           "cd dist/packages/cli && npm version {args.version} --allow-same-version"
         ],
         "cwd": "./",
-        "parallel": false
+        "parallel": true
       }
     },
     "release": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
-        "commands": [
-          {
-            "command": "cd dist/packages/cli && npm publish --access public --dry-run",
-            "forwardAllArgs": false
-          }
-        ],
         "cwd": "./",
-        "parallel": false
+        "commands": [
+          "cd dist/packages/cli && npm publish --access public --dry-run"
+        ]
       }
     }
   },
