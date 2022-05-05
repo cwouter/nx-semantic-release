@@ -44,6 +44,12 @@
       }
     ],
     [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "CHANGELOG.md"
+      }
+    ],
+    [
       "@semantic-release/release-notes-generator",
       {
         "preset": "ESLint"
@@ -61,10 +67,10 @@
       "@semantic-release/git",
       {
         "assets": [
+          "CHANGELOG.md",
           "packages/cli/package.json",
           "packages/core/package.json",
           "packages/core/package.json",
-          "package.json",
         ],
         "message": "Chore: release ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
