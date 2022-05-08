@@ -1,6 +1,6 @@
 {
   "name": "@nx-semantic-release/cli",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "bin": "./src/index.js",
   "license": "GPL-3.0",
   "private": false,
